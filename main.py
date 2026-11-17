@@ -27,33 +27,5 @@ client = OpenAI(
 
 # /start command ka handler
 async def start(update, context):
-    await update.message.reply_text("Namaste! Main Xyren AI hoon (Powered by Groq/Llama). Aap mujhse kuch bhi pooch sakte hain!")
-
-# Text messages handler
-async def handle_message(update, context):
-    user_message = update.message.text
-    try:
-        response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": user_message}
-            ]
-        )
-        reply_text = response.choices[0].message.content
-        await update.message.reply_text(reply_text)
-    except Exception as e:
-        await update.message.reply_text(f"Error details: {str(e)}")
-
-def main():
-    TOKEN = os.environ.get("BOT_TOKEN")
-    app = ApplicationBuilder().token(TOKEN).build()
-    
-    # Handlers add karna
-    app.add_handler(CommandHandler("start", start))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
-    
-    app.run_polling()
-
-if __name__ == "__main__":
-    main()
+    await update.message.reply_text("Namaste! Main Xyren AI hoon (
+                                    
